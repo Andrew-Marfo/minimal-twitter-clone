@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_clone/themes/dark_mode.dart';
 import 'package:twitter_clone/themes/light_mode.dart';
 
 class ThemeProvider with ChangeNotifier {
-  ThemeData themeData = lightMode;
+  ThemeData _themeData = lightMode;
+
+  ThemeData get themeData => _themeData;
+
+  bool get isDarkMode => _themeData == darkMode;
+
+  set themeData(ThemeData themeData) {
+    _themeData = themeData;
+
+    notifyListeners();
+  }
+
+  void toggle() {
+    _themeData = isDarkMode ? lightMode : darkMode;
+  }
 }
