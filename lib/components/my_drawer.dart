@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twitter_clone/components/my_drawer_list_tile.dart';
+import 'package:twitter_clone/screens/settings_screen.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -29,21 +30,21 @@ class MyDrawer extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
-            // MyDrawerListTile(
-            //   icon: Icons.settings,
-            //   title: 'S E T T I N G S',
-            //   onTap: () {
-            //     Navigator.pop(context);
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //         builder: (context) {
-            //           return const SettingsScreen();
-            //         },
-            //       ),
-            //     );
-            //   },
-            // )
+            MyDrawerListTile(
+              icon: Icons.settings,
+              title: 'S E T T I N G S',
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const SettingsScreen();
+                    },
+                  ),
+                );
+              },
+            )
           ],
         ),
       ),
