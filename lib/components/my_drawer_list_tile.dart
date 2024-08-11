@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MyDrawerListTile extends StatelessWidget {
   final IconData icon;
   final String title;
-  final void Function() onTap;
+  final void Function()? onTap;
   const MyDrawerListTile({
     super.key,
     required this.icon,

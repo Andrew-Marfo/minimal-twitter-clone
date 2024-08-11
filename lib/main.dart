@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
       home: const HomePage(),
       theme: Provider.of<ThemeProvider>(
         context,
-        listen: false,
       ).themeData,
     );
   }
