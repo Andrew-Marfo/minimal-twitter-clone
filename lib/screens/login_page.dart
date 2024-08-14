@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_clone/components/login_textfield.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  final emailController = TextEditingController();
+  final psController = TextEditingController();
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,17 +12,25 @@ class LoginPage extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.lock_open,
-                size: 70,
-              ),
-              const SizedBox(height: 50),
-              const Text('Welcome Back, Continue to Login'),
-              
-            ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.lock_open,
+                  size: 70,
+                ),
+                const SizedBox(height: 50),
+                const Text('Welcome Back, Continue to Login'),
+                const SizedBox(height: 30),
+                LoginTextfield(
+                  hintText: 'Enter Email',
+                  textController: emailController,
+                  obscure: false,
+                ),
+              ],
+            ),
           ),
         ),
       ),

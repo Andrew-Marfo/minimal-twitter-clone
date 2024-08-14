@@ -18,7 +18,15 @@ class LoginTextfield extends StatelessWidget {
       obscureText: obscure,
       controller: textController,
       decoration: InputDecoration(
+        fillColor: Theme.of(context).colorScheme.secondary,
+        filled: true,
         hintText: hintText,
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.surface,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
       ),
     );
   }
