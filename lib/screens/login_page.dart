@@ -18,9 +18,10 @@ class LoginPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(
+                Icon(
                   Icons.lock_open,
                   size: 70,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 const SizedBox(height: 50),
                 Text(
