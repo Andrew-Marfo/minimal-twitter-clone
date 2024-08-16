@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_clone/components/custom_button.dart';
 import 'package:twitter_clone/components/login_textfield.dart';
 
 class LoginPage extends StatelessWidget {
@@ -39,6 +40,10 @@ class LoginPage extends StatelessWidget {
                 const Align(
                   alignment: Alignment.centerRight,
                   child: Text('Forgot Password'),
+                ),
+                const SizedBox(height: 20),
+                CustomButton(
+                  onTap: () {},
                 ),
               ],
             ),
