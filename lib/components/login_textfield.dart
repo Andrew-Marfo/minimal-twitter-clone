@@ -27,6 +27,12 @@ class LoginTextfield extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(10),
         ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.surface,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
       ),
     );
   }

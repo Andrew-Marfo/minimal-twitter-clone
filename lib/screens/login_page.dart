@@ -23,7 +23,14 @@ class LoginPage extends StatelessWidget {
                   size: 70,
                 ),
                 const SizedBox(height: 50),
-                const Text('Welcome Back, Continue to Login'),
+                Text(
+                  'Welcome Back, Continue to Login',
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 const SizedBox(height: 30),
                 LoginTextfield(
                   hintText: 'Enter Email',
@@ -37,14 +44,32 @@ class LoginPage extends StatelessWidget {
                   obscure: true,
                 ),
                 const SizedBox(height: 20),
-                const Align(
+                Align(
                   alignment: Alignment.centerRight,
-                  child: Text('Forgot Password'),
+                  child: Text(
+                    'Forgot Password?',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 20),
                 CustomButton(
                   onTap: () {},
                 ),
+                const SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Not a member?'),
+                    const SizedBox(width: 5),
+                    GestureDetector(
+                      onTap: () {},
+                      child: const Text('Register now'),
+                    ),
+                  ],
+                )
               ],
             ),
           ),
