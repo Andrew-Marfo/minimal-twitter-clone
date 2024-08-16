@@ -29,6 +29,17 @@ class LoginPage extends StatelessWidget {
                   textController: emailController,
                   obscure: false,
                 ),
+                const SizedBox(height: 20),
+                LoginTextfield(
+                  hintText: 'Password',
+                  textController: psController,
+                  obscure: true,
+                ),
+                const SizedBox(height: 20),
+                const Align(
+                  alignment: Alignment.centerRight,
+                  child: Text('Forgot Password'),
+                ),
               ],
             ),
           ),
