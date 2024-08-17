@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:twitter_clone/components/custom_button.dart';
 import 'package:twitter_clone/components/login_textfield.dart';
 
-class LoginPage extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
   final emailController = TextEditingController();
   final psController = TextEditingController();
-  LoginPage({super.key});
+  final confirmPsController = TextEditingController();
+  RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +35,12 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 LoginTextfield(
+                  hintText: 'Enter Name',
+                  textController: emailController,
+                  obscure: false,
+                ),
+                const SizedBox(height: 20),
+                LoginTextfield(
                   hintText: 'Enter Email',
                   textController: emailController,
                   obscure: false,
@@ -45,16 +52,22 @@ class LoginPage extends StatelessWidget {
                   obscure: true,
                 ),
                 const SizedBox(height: 20),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    'Forgot Password?',
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                LoginTextfield(
+                  hintText: 'Confirm Password',
+                  textController: confirmPsController,
+                  obscure: true,
                 ),
+                const SizedBox(height: 20),
+                // Align(
+                //   alignment: Alignment.centerRight,
+                //   child: Text(
+                //     'Forgot Password?',
+                //     style: TextStyle(
+                //       color: Theme.of(context).colorScheme.primary,
+                //       fontWeight: FontWeight.bold,
+                //     ),
+                //   ),
+                // ),
                 const SizedBox(height: 20),
                 CustomButton(
                   onTap: () {},
@@ -63,11 +76,11 @@ class LoginPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Not a member?'),
+                    const Text('Already have an account?'),
                     const SizedBox(width: 5),
                     GestureDetector(
                       onTap: () {},
-                      child: const Text('Register now'),
+                      child: const Text('Login here'),
                     ),
                   ],
                 )

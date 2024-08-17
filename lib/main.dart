@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:twitter_clone/screens/login_page.dart';
 import 'package:twitter_clone/themes/theme_provider.dart';
 
+import 'screens/register_page.dart';
+
 void main() {
   runApp(
     ChangeNotifierProvider(
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: RegisterPage(),
       theme: Provider.of<ThemeProvider>(
         context,
       ).themeData,
