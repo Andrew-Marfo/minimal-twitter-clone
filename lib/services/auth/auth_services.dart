@@ -27,4 +27,13 @@ class AuthServices {
       return e;
     }
   }
+
+  // logout User Out
+  logout() async {
+    try {
+      await _auth.signOut();
+    } catch (e) {
+      return e;
+    }
+  }
 }
