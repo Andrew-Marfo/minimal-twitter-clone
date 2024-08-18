@@ -1,13 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'package:twitter_clone/firebase_options.dart';
-// import 'package:twitter_clone/screens/homepage.dart';
-import 'package:twitter_clone/screens/login_page.dart';
 import 'package:twitter_clone/services/auth/register_login.dart';
 import 'package:twitter_clone/themes/theme_provider.dart';
-
-import 'screens/register_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized;
