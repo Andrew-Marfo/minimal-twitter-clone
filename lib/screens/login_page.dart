@@ -5,7 +5,11 @@ import 'package:twitter_clone/components/login_textfield.dart';
 class LoginPage extends StatelessWidget {
   final emailController = TextEditingController();
   final psController = TextEditingController();
-  LoginPage({super.key});
+  final void Function()? onTap;
+  LoginPage({
+    super.key,
+    required this.onTap,
+   });
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +70,7 @@ class LoginPage extends StatelessWidget {
                     const Text('Not a member?'),
                     const SizedBox(width: 5),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: onTap,
                       child: const Text('Register now'),
                     ),
                   ],

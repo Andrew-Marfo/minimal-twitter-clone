@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_clone/screens/login_page.dart';
+import 'package:twitter_clone/screens/register_page.dart';
 
 class RegisterLogin extends StatefulWidget {
   const RegisterLogin({super.key});
@@ -8,8 +10,24 @@ class RegisterLogin extends StatefulWidget {
 }
 
 class _RegisterLoginState extends State<RegisterLogin> {
+  bool isLogin = true;
+
+  void toggleAuthPages() {
+    setState(() {
+      isLogin = !isLogin;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    if (isLogin) {
+      return LoginPage(
+        onTap: toggleAuthPages,
+      );
+    } else {
+      return RegisterPage(
+        onTap: toggleAuthPages,
+      );
+    }
   }
 }

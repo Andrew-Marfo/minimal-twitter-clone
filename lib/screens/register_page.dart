@@ -6,7 +6,11 @@ class RegisterPage extends StatelessWidget {
   final emailController = TextEditingController();
   final psController = TextEditingController();
   final confirmPsController = TextEditingController();
-  RegisterPage({super.key});
+  final void Function()? onTap;
+  RegisterPage({
+    super.key,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +83,7 @@ class RegisterPage extends StatelessWidget {
                     const Text('Already have an account?'),
                     const SizedBox(width: 5),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: onTap,
                       child: const Text('Login here'),
                     ),
                   ],
