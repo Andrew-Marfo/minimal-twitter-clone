@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
     required this.onTap,
   });
 
-  Future login() async {
+  void login() async {
     try {
       await _auth.login(
         emailController.text,
