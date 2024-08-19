@@ -48,7 +48,9 @@ class MyDrawer extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return ProfilePage(uid: _auth.user.uid);
+                        return ProfilePage(
+                          uid: _auth.getCurrentUid(),
+                        );
                       },
                     ),
                   );
