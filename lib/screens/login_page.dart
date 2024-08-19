@@ -1,26 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:twitter_clone/components/custom_button.dart';
+import 'package:twitter_clone/components/loading_spinner.dart';
 import 'package:twitter_clone/components/login_textfield.dart';
 import 'package:twitter_clone/services/auth/auth_services.dart';
 
-class LoginPage extends StatelessWidget {
-  final emailController = TextEditingController();
-  final psController = TextEditingController();
-  final _auth = AuthServices();
-
+class LoginPage extends StatefulWidget {
   final void Function()? onTap;
-  LoginPage({
+  const LoginPage({
     super.key,
     required this.onTap,
   });
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final emailController = TextEditingController();
+
+  final psController = TextEditingController();
+
+  final _auth = AuthServices();
+
   void login() async {
+    showLoadingSpinner(context);
     try {
       await _auth.login(
         emailController.text,
         psController.text,
       );
+      if (mounted) hideLoadingSpinner(context);
     } catch (e) {
+      if (mounted) hideLoadingSpinner(context);
       print(e.toString());
     }
   }
@@ -84,7 +95,7 @@ class LoginPage extends StatelessWidget {
                     const Text('Not a member?'),
                     const SizedBox(width: 5),
                     GestureDetector(
-                      onTap: onTap,
+                      onTap: widget.onTap,
                       child: const Text('Register now'),
                     ),
                   ],
