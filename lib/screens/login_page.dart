@@ -32,7 +32,17 @@ class _LoginPageState extends State<LoginPage> {
       if (mounted) hideLoadingSpinner(context);
     } catch (e) {
       if (mounted) hideLoadingSpinner(context);
-      print(e.toString());
+      if (mounted) {
+        return showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text('Something Occured'),
+              content: Text(e.toString()),
+            );
+          },
+        );
+      }
     }
   }
 
