@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:twitter_clone/components/custom_button.dart';
 import 'package:twitter_clone/components/login_textfield.dart';
+import 'package:twitter_clone/services/auth/auth_services.dart';
 
 class LoginPage extends StatelessWidget {
   final emailController = TextEditingController();
   final psController = TextEditingController();
+  final _auth = AuthServices();
+
   final void Function()? onTap;
   LoginPage({
     super.key,
     required this.onTap,
-   });
+  });
+
+  Future login() async {
+    try {
+      await _auth.login(
+        emailController.text,
+        psController.text,
+      );
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +75,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 CustomButton(
-                  onTap: () {},
+                  onTap: login,
                 ),
                 const SizedBox(height: 30),
                 Row(
