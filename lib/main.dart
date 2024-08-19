@@ -4,14 +4,18 @@ import 'package:provider/provider.dart';
 
 import 'package:twitter_clone/firebase_options.dart';
 import 'package:twitter_clone/services/auth/auth_gate.dart';
+import 'package:twitter_clone/services/database/database_provider.dart';
 import 'package:twitter_clone/themes/theme_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(create: (context) => DatabaseProvider()),
+      ],
       child: const MyApp(),
     ),
   );
