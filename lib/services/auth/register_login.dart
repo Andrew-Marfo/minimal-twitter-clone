@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:twitter_clone/screens/login_page.dart';
-import 'package:twitter_clone/screens/register_page.dart';
+import 'package:twitter_clone/pages/login_page.dart';
+import 'package:twitter_clone/pages/register_page.dart';
 
 class RegisterLogin extends StatefulWidget {
   const RegisterLogin({super.key});

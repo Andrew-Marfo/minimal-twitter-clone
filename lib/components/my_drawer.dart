@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twitter_clone/components/my_drawer_list_tile.dart';
-import 'package:twitter_clone/screens/settings_screen.dart';
+import 'package:twitter_clone/pages/settings_page.dart';
 import 'package:twitter_clone/services/auth/auth_services.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -47,7 +47,7 @@ class MyDrawer extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const SettingsScreen();
+                        return const SettingsPage();
                       },
                     ),
                   );

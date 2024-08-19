@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:twitter_clone/components/my_settings_list_tile.dart';
 import 'package:twitter_clone/themes/theme_provider.dart';
 
-class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
