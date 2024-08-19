@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthServices {
   final _auth = FirebaseAuth.instance;
+
   User get user => _auth.currentUser!;
 
   // Create User account
@@ -11,6 +12,7 @@ class AuthServices {
         email: email,
         password: password,
       );
+      
     } catch (e) {
       return e;
     }
@@ -32,6 +34,15 @@ class AuthServices {
   logout() async {
     try {
       await _auth.signOut();
+    } catch (e) {
+      return e;
+    }
+  }
+
+  // Delete User account
+  deleteAccount() async {
+    try {
+      await _auth.currentUser!.delete();
     } catch (e) {
       return e;
     }
