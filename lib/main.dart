@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:twitter_clone/firebase_options.dart';
-import 'package:twitter_clone/services/auth/register_login.dart';
+import 'package:twitter_clone/services/auth/auth_gate.dart';
 import 'package:twitter_clone/themes/theme_provider.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized;
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const RegisterLogin(),
+      home: const AuthGate(),
       theme: Provider.of<ThemeProvider>(
         context,
       ).themeData,
