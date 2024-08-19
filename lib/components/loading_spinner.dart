@@ -6,6 +6,7 @@ void showLoadingSpinner(BuildContext context) {
     builder: (context) {
       return const AlertDialog(
         backgroundColor: Colors.transparent,
+        elevation: 0,
         content: Center(
           child: CircularProgressIndicator(),
         ),
