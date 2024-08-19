@@ -6,6 +6,7 @@ class DatabaseServices {
   final _db = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
 
+// save user info to firebase upon registration
   Future<void> saveUserInfoToFirebase(
     String email,
     String name,
@@ -23,8 +24,17 @@ class DatabaseServices {
     );
 
     final userMap = user.toMap();
-    await _db.collection('users').doc(userUid).set(userMap);
+    await _db.collection('Users').doc(userUid).set(userMap);
   }
 
-  
+// Get user info
+  Future<UserProfile?> getUserFromFirebase(String uid) async {
+    try {
+      DocumentSnapshot userDoc = await _db.collection('Users').doc(uid).get();
+      return UserProfile.fromDocument(userDoc);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }
