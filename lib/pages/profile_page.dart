@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+class ProfilePage extends StatefulWidget {
+  final String uid;
+  const ProfilePage({
+    super.key,
+    required this.uid,
+  });
 
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-      title: const Text('P R O F I L E'),
-    ));
+      appBar: AppBar(
+        title: const Text('P R O F I L E'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Text(widget.uid),
+      ),
+    );
   }
 }
