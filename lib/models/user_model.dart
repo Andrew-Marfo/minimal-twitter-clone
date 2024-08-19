@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class UserModel {
+class UserProfile {
   final String uid;
   final String name;
   final String email;
   final String username;
   final String bio;
 
-  UserModel({
+  UserProfile({
     required this.uid,
     required this.name,
     required this.email,
@@ -16,8 +16,8 @@ class UserModel {
   });
 
   // convert firestore document to user profile to be  used in the app
-  factory UserModel.fromDocument(DocumentSnapshot doc) {
-    return UserModel(
+  factory UserProfile.fromDocument(DocumentSnapshot doc) {
+    return UserProfile(
       uid: doc['uid'],
       name: doc['name'],
       email: doc['email'],
