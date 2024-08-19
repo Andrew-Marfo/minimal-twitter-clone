@@ -3,6 +3,7 @@ import 'package:twitter_clone/components/custom_button.dart';
 import 'package:twitter_clone/components/loading_spinner.dart';
 import 'package:twitter_clone/components/login_textfield.dart';
 import 'package:twitter_clone/services/auth/auth_services.dart';
+import 'package:twitter_clone/services/database/database_services.dart';
 
 class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
@@ -21,6 +22,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final psController = TextEditingController();
   final confirmPsController = TextEditingController();
   final _auth = AuthServices();
+  final _db = DatabaseServices();
 
   void register() async {
     showLoadingSpinner(context);
@@ -45,6 +47,10 @@ class _RegisterPageState extends State<RegisterPage> {
           psController.text,
         );
         if (mounted) hideLoadingSpinner(context);
+        await _db.saveUserInfoToFirebase(
+          emailController.text,
+          nameController.text,
+        );
       } catch (e) {
         if (mounted) hideLoadingSpinner(context);
         if (mounted) {

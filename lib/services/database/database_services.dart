@@ -10,10 +10,9 @@ class DatabaseServices {
   Future<void> saveUserInfoToFirebase(
     String email,
     String name,
-    String username,
   ) async {
     String userUid = _auth.currentUser!.uid;
-
+    String username = email.split('@')[0];
     // create user
     UserProfile user = UserProfile(
       uid: userUid,
