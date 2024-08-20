@@ -72,7 +72,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           const SizedBox(height: 20),
           // bio
-          BioBox(text: user!.bio)
+          BioBox(text: isLoading ? "" : user!.bio)
         ],
       ),
     );
