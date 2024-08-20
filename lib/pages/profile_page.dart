@@ -37,6 +37,18 @@ class _ProfilePageState extends State<ProfilePage> {
     });
   }
 
+  void _showEditBox() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const AlertDialog(
+          title: Text('Edit Bio'),
+          content: TextField(),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,35 +57,60 @@ class _ProfilePageState extends State<ProfilePage> {
         title: Text(isLoading ? '' : user!.name),
         centerTitle: true,
       ),
-      body: ListView(
-        children: [
-          // username
-          Center(
-            child: Text(
-              isLoading ? '' : '@${user!.username}',
-              style: TextStyle(color: Theme.of(context).colorScheme.primary),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: ListView(
+          children: [
+            // username
+            Center(
+              child: Text(
+                isLoading ? '' : '@${user!.username}',
+                style: TextStyle(color: Theme.of(context).colorScheme.primary),
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
+            const SizedBox(height: 20),
 
-          // profile picture
-          Center(
-            child: Container(
-              padding: const EdgeInsets.all(25),
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
-                borderRadius: BorderRadius.circular(25),
-              ),
-              child: const Icon(
-                Icons.person,
-                size: 75,
+            // profile picture
+            Center(
+              child: Container(
+                padding: const EdgeInsets.all(25),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.secondary,
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: const Icon(
+                  Icons.person,
+                  size: 75,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 20),
-          // bio
-          BioBox(text: isLoading ? "" : user!.bio)
-        ],
+            const SizedBox(height: 20),
+
+            // Edit bio row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Bio',
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.primary),
+                ),
+                IconButton(
+                  onPressed: _showEditBox,
+                  icon: Icon(
+                    Icons.edit,
+                    size: 17,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                )
+              ],
+            ),
+            // const SizedBox(height: 5),
+
+            // bio
+            BioBox(text: isLoading ? "" : user!.bio)
+          ],
+        ),
       ),
     );
   }
