@@ -23,7 +23,7 @@ class _ProfilePageState extends State<ProfilePage> {
   UserProfile? user;
   String currentUserUid = AuthServices().getCurrentUid();
 
-  bool isLoading = false;
+  bool isLoading = true;
   @override
   void initState() {
     super.initState();
