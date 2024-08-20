@@ -72,7 +72,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           const SizedBox(height: 20),
           // bio
-          const BioBox(text: 'This is my Bio')
+          BioBox(text: user!.bio)
         ],
       ),
     );
