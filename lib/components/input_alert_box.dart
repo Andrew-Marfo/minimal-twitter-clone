@@ -51,8 +51,12 @@ class InputAlertBox extends StatelessWidget {
           child: const Text('Cancel'),
         ),
         TextButton(
-          onPressed: onPressed,
-          child: const Text('Save'),
+          onPressed: () {
+            Navigator.pop(context);
+            textController.clear;
+            onPressed();
+          },
+          child: Text(onPressedText),
         )
       ],
     );

@@ -46,12 +46,23 @@ class _ProfilePageState extends State<ProfilePage> {
       builder: (context) {
         return InputAlertBox(
           textController: bioTextController,
-          onPressed: () {},
+          onPressed: saveBio,
           hintText: 'Enter Bio',
-          onPressedText: 'save',
+          onPressedText: 'Save',
         );
       },
     );
+  }
+
+  Future<void> saveBio() async {
+    setState(() {
+      isLoading = true;
+    });
+    await databaseProvider.updateUserBio(bioTextController.text);
+    await loadUser();
+    setState(() {
+      isLoading = false;
+    });
   }
 
   @override
