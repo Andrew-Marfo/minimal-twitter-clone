@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:twitter_clone/components/bio_box.dart';
+import 'package:twitter_clone/components/input_alert_box.dart';
 import 'package:twitter_clone/models/user_model.dart';
 import 'package:twitter_clone/services/auth/auth_services.dart';
 import 'package:twitter_clone/services/database/database_provider.dart';
@@ -37,13 +38,17 @@ class _ProfilePageState extends State<ProfilePage> {
     });
   }
 
+  final bioTextController = TextEditingController();
+
   void _showEditBox() {
     showDialog(
       context: context,
       builder: (context) {
-        return const AlertDialog(
-          title: Text('Edit Bio'),
-          content: TextField(),
+        return InputAlertBox(
+          textController: bioTextController,
+          onPressed: () {},
+          hintText: 'Enter Bio',
+          onPressedText: 'save',
         );
       },
     );
