@@ -39,8 +39,22 @@ class InputAlertBox extends StatelessWidget {
               color: Theme.of(context).colorScheme.outline,
             ),
           ),
+          counterStyle: TextStyle(color: Theme.of(context).colorScheme.primary),
         ),
       ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+            textController.clear();
+          },
+          child: const Text('Cancel'),
+        ),
+        TextButton(
+          onPressed: onPressed,
+          child: const Text('Save'),
+        )
+      ],
     );
   }
 }
